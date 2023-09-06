@@ -29,9 +29,11 @@ body {
   font-family: "Poppins";
 }
 
-.cards-container {
-  webkit-overflow-scrolling: touch;
-}
+
 .cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.list-container::-webkit-scrollbar {
   display: none;
 }
