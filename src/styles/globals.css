@@ -29,11 +29,39 @@ body {
   font-family: "Poppins";
 }
 
-
 .cards-container::-webkit-scrollbar {
   display: none;
 }
 
 .list-container::-webkit-scrollbar {
   display: none;
+}
+
+.card:nth-child(2) {
+  background-color: #5e42e6;
+  color: white;
+  transform: rotate(-15deg);
+}
+
+.card:nth-child(3) {
+  background-color: #dcf1fd;
+}
+.card:nth-child(4) {
+  background-color: #fcf0d8;
+}
+.card:nth-child(4) {
+  background-color: #f4f9f8;
+}
+.card:nth-child(5) {
+  background-color: #dcf1fd;
+}
+.card:nth-child(6) {
+  background-color: #fcf0d8;
+}
+.card:nth-child(7) {
+  background-color: #f4f9f8;
+}
+
+.list > * {
+  color: gray;
 }

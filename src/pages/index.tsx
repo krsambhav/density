@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import memoji from "../assets/memoji.jpeg";
@@ -8,8 +9,22 @@ import secondposter from "../assets/secondposter.png";
 import appstore from "../assets/appstore.png";
 import List from "./components/List";
 import { HiLocationMarker, HiMail } from "react-icons/hi";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const inter = Inter({ subsets: ["latin"] });
+const onEnter = ({ currentTarget }: any) => {
+  gsap.to(currentTarget, {
+    // scrollTrigger: {
+    //   trigger: currentTarget,
+    //   start: 'bottom center'
+    // }, 
+    duration:1,
+    scrollTo: {x:1000},
+    delay:.5
+  });
+};
 
 export default function Home() {
   return (
@@ -55,7 +70,10 @@ export default function Home() {
             <Image src={zombie} alt="memoji" className="rounded-md w-[60px]" />
           </div>
         </div>
-        <div className="cards-container flex flex-row w-[100%] overflow-x-scroll whitespace-nowrap gap-10">
+        <div
+          onMouseEnter={onEnter}
+          className="cards-container flex flex-row w-[100%] px-10 py-20 overflow-x-scroll whitespace-nowrap gap-12"
+        >
           <Card
             emoji="😛"
             title="You argue with a colleague"
@@ -121,7 +139,7 @@ export default function Home() {
         </div>
         <div className="list-container w-[70%] flex flex-col gap-10 h-[500px] overflow-scroll">
           <List
-            title="It iss not as easy as 1-2-3."
+            title="It is not as easy as 1-2-3."
             text="The journey of change may be long, but our sessions are quick. We get to
         the point and tell you what you want to know (and nothing else)."
           />
